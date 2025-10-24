@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: "file:/app/data/database.sqlite"
+      PORT: "3000"
+      HOST: "0.0.0.0"
+      COOKIE_DOMAIN: "localhost"
+    ports:
+      - "${PORT}:3000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000', r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 10s
+      timeout: 3s
+      retries: 5

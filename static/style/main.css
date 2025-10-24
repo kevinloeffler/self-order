@@ -1,0 +1,120 @@
+/* region: fonts */
+
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-Italic';
+    src: url('fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* endregion */
+
+/* region: css reset */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+
+input, button, textarea, select { font: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; line-height: 1.1em; }
+
+p { text-wrap: pretty; margin: 0; margin-block-start: 0; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1em; }
+
+#root, #__next { isolation: isolate; }
+
+a { color: var(--text-color); text-decoration: none; }
+
+/* endregion */
+
+:root {
+    --text-color: #fff;
+    --accent-color: #43B9FD;
+    --accent-color-hover: #2ea1e3;
+    --accent-color-raised: rgba(67, 185, 253, 0.1);
+    --secondary-color: #999999;
+    --background-color: #0A0A0A;
+
+    --border-radius: 4px;
+}
+
+/***** GLOBAL *****/
+
+body {
+    font-family: 'Inter', 'SF-Pro-Display', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+p {
+    margin-top: 12px;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: var(--accent-color);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    width: 100%;
+    padding: 12px 12px;
+    cursor: pointer;
+}
+
+.button-main {
+    outline: none;
+    border: none;
+    background: var(--accent-color);
+    border-radius: var(--border-radius);
+    color: var(--background-color);
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    padding: 12px 12px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+.button-main:hover {
+    background-color: var(--accent-color-hover);
+}
+
+.button-secondary {
+    background-color: var(--background-color);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    transition: background-color 200ms;
+}
+
+.button-secondary:hover {
+    background-color: var(--accent-color-raised);
+}
+
+.box {
+    display: block;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 8px 12px;
+}
