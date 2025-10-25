@@ -28,6 +28,7 @@
     import type {ArticleDTO} from '$lib/db/models'
     import {onMount} from 'svelte'
     import Navbar from '$lib/components/navbar.svelte'
+    import {goto} from '$app/navigation'
 
     let { data }: PageProps = $props()
     let items: ArticleDTO[] = $state([])
@@ -49,6 +50,8 @@
             method: 'POST',
             body: JSON.stringify(groupedItems),
         })
+        const result = await res.json()
+        await goto(`/${data.event?.name}/${data.table?.name}/done/${result.oderId}`)
     }
 
     async function getCart() {

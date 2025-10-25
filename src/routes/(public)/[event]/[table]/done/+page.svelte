@@ -1,1 +1,0 @@
-<h1>Bestellung Erfolgreich</h1>

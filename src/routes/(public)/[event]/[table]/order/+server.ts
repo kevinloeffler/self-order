@@ -50,5 +50,5 @@ export const POST: RequestHandler = async ({ params, request }) => {
         ]
     })
 
-    return new Response(JSON.stringify({status: true, oderId: 240}))
+    return new Response(JSON.stringify({status: true, oderId: fresh?.number}))
 }
